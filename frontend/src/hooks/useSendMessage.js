@@ -15,6 +15,7 @@ const useSendMessage = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ message }),
+                credentials: "include",
             });
             const text = await res.text();
             const data = text ? JSON.parse(text) : {};
