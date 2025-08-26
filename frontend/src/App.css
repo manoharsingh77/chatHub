@@ -1,32 +1,4 @@
 
-/*body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9fafb;
-  color: #111827;
-  height: 100vh;
-} 
-
-.p-4 {
-  padding: 1rem;
-}
-
-.h-screen {
-  height: 100vh;
-}
-
-.flex {
-  display: flex;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-*/
 /* Styling for the main container div in App.jsx */
 div.p-4.h-screen.flex.items-center.justify-center {
   background-color: #ffffff;
