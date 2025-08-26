@@ -1,12 +1,35 @@
-# React + Vite
+# ChatHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ChatHub is a real-time chat application built using modern web technologies. It allows users to send and receive messages instantly, manage conversations, and have a seamless chat experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Real-time messaging between users
+- Multiple conversation support
+- User authentication and session management
+- Responsive design for desktop and mobile
+- Toast notifications for errors and updates
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+- **Frontend:** React, Tailwind CSS (or your styling framework)
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (or your DB)
+- **Authentication:** Cookie-based or JWT
+- **Realtime Communication:** WebSocket / Socket.io
+- **Notifications:** react-hot-toast
+
+---
+
+## Installation
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/your-username/chatApp.git
+cd chatApp
+
