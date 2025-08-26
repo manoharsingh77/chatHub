@@ -32,4 +32,37 @@ ChatHub is a real-time chat application built using modern web technologies. It 
 ```bash
 git clone https://github.com/your-username/chatApp.git
 cd chatApp
+```
+2. **Install dependencies**
+```bash
+# Frontend
+cd client
+npm install
+
+# Backend
+cd ../server
+npm install
+```
+  3. ***Set up environment variables***
+
+* Create a .env file in the server folder.
+
+* Add variables like this:
+```bash
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+4. ***Run the application***
+``` bash
+# Backend
+cd server
+npm run server
+
+# Frontend
+cd ../client
+npm run dev
+```
+
+
 
