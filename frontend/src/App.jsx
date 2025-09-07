@@ -7,56 +7,18 @@ import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/AuthContext";
 
 function App() {
-	const { authUser } = useAuthContext();
+  const { authUser } = useAuthContext();
 
-	return (
-		<div className="min-h-screen bg-[url('/bg.png')] bg-cover bg-center flex items-center justify-center">
-			<Routes>
-				{/* Home (chat screen) */}
-				<Route
-					path="/"
-					element={
-						authUser ? (
-							<div className="w-full h-full flex items-center justify-center p-2">
-								<Home />
-							</div>
-						) : (
-							<Navigate to="/login" />
-						)
-					}
-				/>
-
-				{/* Login */}
-				<Route
-					path="/login"
-					element={
-						authUser ? (
-							<Navigate to="/" />
-						) : (
-							<div className="p-4 min-h-screen flex items-center justify-center">
-								<Login />
-							</div>
-						)
-					}
-				/>
-
-				{/* Signup */}
-				<Route
-					path="/signup"
-					element={
-						authUser ? (
-							<Navigate to="/" />
-						) : (
-							<div className="p-4 min-h-screen flex items-center justify-center">
-								<SignUp />
-							</div>
-						)
-					}
-				/>
-			</Routes>
-			<Toaster />
-		</div>
-	);
+  return (
+    <div className="h-screen w-screen">
+      <Routes>
+        <Route path="/" element={authUser ? <Home /> : <Navigate to="/login" />} />
+        <Route path="/login" element={authUser ? <Navigate to="/" /> : <Login />} />
+        <Route path="/signup" element={authUser ? <Navigate to="/" /> : <SignUp />} />
+      </Routes>
+      <Toaster />
+    </div>
+  );
 }
 
 export default App;
