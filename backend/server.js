@@ -7,7 +7,7 @@ import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
-import friendRouter from "./routes/friends.routes.js"; // ✅ import friend router
+import friendRouter from "./routes/friends.routes.js"; 
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import { app, server } from "./socket/socket.js";
@@ -16,20 +16,22 @@ dotenv.config();
 
 const __dirname = path.resolve();
 // PORT should be assigned after calling dotenv.config() because we need to access the env variables. Didn't realize while recording the video. Sorry for the confusion.
-const PORT =  5000;
+const PORT =  process.env.PORT ||  5000;
 //const app=express();
 app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
 app.use(cookieParser());
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+	"http://localhost:5173",
+	"https://chathub-en6y.onrender.com"],
   credentials: true   // if you use cookies/sessions
 }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/friends", friendRouter); // ✅ use friend router
+app.use("/api/friends", friendRouter); 
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
