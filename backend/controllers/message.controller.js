@@ -1,5 +1,6 @@
 import Conversation from "../models/conversation.model.js";
 import Message from "../models/message.model.js";
+import User from "../models/user.model.js";   // ✅ import User
 import { getReceiverSocketId, io } from "../socket/socket.js";
 
 export const sendMessage = async (req, res) => {
@@ -7,6 +8,12 @@ export const sendMessage = async (req, res) => {
 		const { message } = req.body;
 		const { id: receiverId } = req.params;
 		const senderId = req.user._id;
+
+		// ✅ 1. Check if they are friends
+		const sender = await User.findById(senderId);
+		if (!sender.friends.includes(receiverId)) {
+			return res.status(403).json({ error: "You can only chat with friends" });
+		}
 
 		let conversation = await Conversation.findOne({
 			participants: { $all: [senderId, receiverId] },

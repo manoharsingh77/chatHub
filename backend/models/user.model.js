@@ -26,8 +26,21 @@ const userSchema = new mongoose.Schema(
 			default: "",
 		},
 		// createdAt, updatedAt => Member since <createdAt>
-	},
-	{ timestamps: true }
+		//New fields for friends system
+		friends: [
+			{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "User",
+			},
+		], //accepted friends
+
+		friendRequests: [
+			{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "User",
+			},
+		], // pending requests
+	}, { timestamps: true }
 );
 
 const User = mongoose.model("User", userSchema);
